@@ -7,6 +7,7 @@ function Sidebar() {
       style={{ width: "250px", height: "100vh" }}
     >
       <h4 className="text-primary">Patient Panel</h4>
+      <p className="text-secondary mb-2">Welcome, <strong>Patient!</strong></p>
       <hr />
       <ul className="nav nav-pills flex-column mb-auto">
         <li className="nav-item">
