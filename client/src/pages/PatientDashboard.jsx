@@ -1,7 +1,26 @@
+import { pastData } from "../data/pastData";
+import { useState } from "react";  
+
+
 function Dashboard() {
+    const [currentPage, setCurrentPage] = useState(1);
+    const rowsPerPage = 5;
+
+    const totalPages = Math.ceil(pastData.length / rowsPerPage);
+    const indexOfLastRow = currentPage * rowsPerPage;
+    const indexOfFirstRow = indexOfLastRow - rowsPerPage;
+    const currentRows = pastData.slice(indexOfFirstRow, indexOfLastRow);
+
+    const handlePageChange = (page) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+    };
+
+
   return (
-    <div>
-      <h4>Dashboard</h4>
+    <div className="container mt-4">
+      {/* Hero Banner */}
       <div className="position-relative rounded-3 bg-image">
         <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-25 rounded-3"></div>
         <div className="p-4 mt-3 position-relative">
@@ -22,7 +41,96 @@ function Dashboard() {
           </form>
         </div>
       </div>
-    </div>
+
+      {/* Previous Appointments */}
+        <div
+          className="table-responsive shadow-sm rounded-3 border border-2 mt-3"
+          style={{ maxHeight: "400px", overflowY: "auto" }}
+        >
+          <table className="table align-middle mb-0">
+            <thead
+              className="bg-secondary"
+              style={{ position: "sticky", top: 0, zIndex: 1 }}
+            >
+              <tr>
+                <th className="text-secondary fw-semibold">Patient Name</th>
+                <th className="text-secondary fw-semibold">Doctor</th>
+                <th className="text-secondary fw-semibold">Specialization</th>
+                <th className="text-secondary fw-semibold">Date</th>
+                <th className="text-secondary fw-semibold">Time</th>
+                <th className="text-secondary fw-semibold">Reason</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {currentRows.map((appointment) => (
+                <tr key={appointment.appointment_id} className="hover-row">
+                  <td>{appointment.patient_name}</td>
+                  <td>{appointment.doctor_name}</td>
+                  <td>
+                    <span className="badge bg-primary-subtle text-primary px-2 py-1 rounded-2">
+                      {appointment.specialization}
+                    </span>
+                  </td>
+                  <td>{appointment.appointment_date}</td>
+                  <td>{appointment.appointment_time}</td>
+                  <td className="text-truncate" style={{ maxWidth: "200px" }}>
+                    {appointment.reason_for_visit}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+            {/* ✅ Table Footer with Pagination */}
+            <tfoot>
+              <tr>
+                <td colSpan="6">
+                  <nav className="mt-2">
+                    <ul className="pagination justify-content-end mb-0">
+                      <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
+                        <button
+                          className="page-link"
+                          onClick={() => handlePageChange(currentPage - 1)}
+                        >
+                          Previous
+                        </button>
+                      </li>
+
+                      {Array.from({ length: totalPages }, (_, index) => (
+                        <li
+                          key={index + 1}
+                          className={`page-item ${
+                            currentPage === index + 1 ? "active" : ""
+                          }`}
+                        >
+                          <button
+                            className="page-link"
+                            onClick={() => handlePageChange(index + 1)}
+                          >
+                            {index + 1}
+                          </button>
+                        </li>
+                      ))}
+
+                      <li
+                        className={`page-item ${
+                          currentPage === totalPages ? "disabled" : ""
+                        }`}
+                      >
+                        <button
+                          className="page-link"
+                          onClick={() => handlePageChange(currentPage + 1)}
+                        >
+                          Next
+                        </button>
+                      </li>
+                    </ul>
+                  </nav>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
   );
 }
 
