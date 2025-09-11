@@ -1,0 +1,7 @@
+.bg-image {
+  background-image: url('../image/patientBg.jpg');
+  background-color: #cde7f0 !important;
+  background-size: contain;
+  background-position: right center;
+  background-repeat: no-repeat;
+}
