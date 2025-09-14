@@ -4,7 +4,7 @@ import { useState } from "react";
 
 function Dashboard() {
     const [currentPage, setCurrentPage] = useState(1);
-    const rowsPerPage = 5;
+    const rowsPerPage = 7;
 
     const totalPages = Math.ceil(pastData.length / rowsPerPage);
     const indexOfLastRow = currentPage * rowsPerPage;
@@ -43,10 +43,11 @@ function Dashboard() {
       </div>
 
       {/* Previous Appointments */}
-        <div
-          className="table-responsive shadow-sm rounded-3 border border-2 mt-3"
-          style={{ maxHeight: "400px", overflowY: "auto" }}
-        >
+      <div
+        className="shadow-sm rounded-3 border border-2 mt-3"
+        style={{ height: "389px", display: "flex", flexDirection: "column" }}
+      >
+        <div style={{ flex: "1 1 auto", overflowY: "auto" }}>
           <table className="table align-middle mb-0">
             <thead
               className="bg-secondary"
@@ -61,7 +62,6 @@ function Dashboard() {
                 <th className="text-secondary fw-semibold">Reason</th>
               </tr>
             </thead>
-
             <tbody>
               {currentRows.map((appointment) => (
                 <tr key={appointment.appointment_id} className="hover-row">
@@ -80,55 +80,60 @@ function Dashboard() {
                 </tr>
               ))}
             </tbody>
-            {/* ✅ Table Footer with Pagination */}
-            <tfoot>
-              <tr>
-                <td colSpan="6">
-                  <nav className="mt-2">
-                    <ul className="pagination justify-content-end mb-0">
-                      <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
-                        <button
-                          className="page-link"
-                          onClick={() => handlePageChange(currentPage - 1)}
-                        >
-                          Previous
-                        </button>
-                      </li>
+          </table>
+        </div>
 
-                      {Array.from({ length: totalPages }, (_, index) => (
+        {/* Pagination */}
+          <tfoot className="border-top">
+            <tr>
+              <td colSpan="6">
+                <div className="d-flex justify-content-end">
+                <nav className="mt-2">
+                  <div style={{ flexShrink: 0 }}>
+                    <nav className="mb-2 me-2">
+                      <ul className="pagination mb-0">
+                        <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
+                          <button
+                            className="page-link"
+                            onClick={() => handlePageChange(currentPage - 1)}
+                          >
+                            Previous
+                          </button>
+                        </li>
+                        {Array.from({ length: totalPages }, (_, index) => (
+                          <li
+                            key={index + 1}
+                            className={`page-item ${currentPage === index + 1 ? "active" : ""}`}
+                          >
+                            <button
+                              className="page-link"
+                              onClick={() => handlePageChange(index + 1)}
+                            >
+                              {index + 1}
+                            </button>
+                          </li>
+                        ))}
+
                         <li
-                          key={index + 1}
                           className={`page-item ${
-                            currentPage === index + 1 ? "active" : ""
+                            currentPage === totalPages ? "disabled" : ""
                           }`}
                         >
                           <button
                             className="page-link"
-                            onClick={() => handlePageChange(index + 1)}
+                            onClick={() => handlePageChange(currentPage + 1)}
                           >
-                            {index + 1}
+                            Next
                           </button>
                         </li>
-                      ))}
-
-                      <li
-                        className={`page-item ${
-                          currentPage === totalPages ? "disabled" : ""
-                        }`}
-                      >
-                        <button
-                          className="page-link"
-                          onClick={() => handlePageChange(currentPage + 1)}
-                        >
-                          Next
-                        </button>
-                      </li>
-                    </ul>
-                  </nav>
-                </td>
-              </tr>
-            </tfoot>
-          </table>
+                      </ul>
+                    </nav>
+                  </div>
+                </nav>
+                </div>
+              </td>
+            </tr>
+          </tfoot>
         </div>
       </div>
   );
