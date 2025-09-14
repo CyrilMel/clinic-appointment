@@ -1,0 +1,107 @@
+// mock data for previous appointments
+export const pastData = [
+  {
+    appointment_id: 1,
+    patient_id: 101,
+    patient_name: "John Doe",
+    date_of_birth: "1990-05-12",
+    doctor_id: 201,
+    doctor_name: "Dr. Alice Smith",
+    specialization: "Cardiology",
+    appointment_date: "2025-08-15",
+    appointment_time: "10:30",
+    status: "completed",
+    reason_for_visit: "Chest pain and shortness of breath"
+  },
+  {
+    appointment_id: 2,
+    patient_id: 102,
+    patient_name: "Jane Miller",
+    date_of_birth: "1985-11-03",
+    doctor_id: 202,
+    doctor_name: "Dr. Robert Brown",
+    specialization: "Pediatrics",
+    appointment_date: "2025-07-25",
+    appointment_time: "14:00",
+    status: "completed",
+    reason_for_visit: "Regular child checkup"
+  },
+  {
+  appointment_id: 3,
+  patient_id: 102,
+  patient_name: "Jane Smith",
+  date_of_birth: "1985-09-22",
+  doctor_id: 202,
+  doctor_name: "Dr. Robert Johnson",
+  specialization: "Dermatology",
+  appointment_date: "2025-08-18",
+  appointment_time: "14:00",
+  status: "completed",
+  reason_for_visit: "Skin rash and itching"
+},
+{
+  appointment_id: 4,
+  patient_id: 103,
+  patient_name: "Michael Brown",
+  date_of_birth: "1978-11-05",
+  doctor_id: 203,
+  doctor_name: "Dr. Emily Davis",
+  specialization: "Orthopedics",
+  appointment_date: "2025-08-20",
+  appointment_time: "09:15",
+  status: "completed",
+  reason_for_visit: "Knee pain from sports injury"
+},
+{
+  appointment_id: 5,
+  patient_id: 104,
+  patient_name: "Sarah Wilson",
+  date_of_birth: "1992-03-30",
+  doctor_id: 204,
+  doctor_name: "Dr. Daniel Martinez",
+  specialization: "Pediatrics",
+  appointment_date: "2025-08-22",
+  appointment_time: "11:45",
+  status: "completed",
+  reason_for_visit: "Child’s recurring fever"
+},
+{
+  appointment_id: 6,
+  patient_id: 105,
+  patient_name: "David Lee",
+  date_of_birth: "1988-07-14",
+  doctor_id: 205,
+  doctor_name: "Dr. Sophia Taylor",
+  specialization: "Neurology",
+  appointment_date: "2025-08-25",
+  appointment_time: "13:30",
+  status: "completed",
+  reason_for_visit: "Frequent migraines"
+},
+{
+  appointment_id: 7,
+  patient_id: 106,
+  patient_name: "Emily Johnson",
+  date_of_birth: "1995-01-10",
+  doctor_id: 206,
+  doctor_name: "Dr. William Anderson",
+  specialization: "Gastroenterology",
+  appointment_date: "2025-08-28",
+  appointment_time: "15:00",
+  status: "completed",
+  reason_for_visit: "Stomach pain and indigestion"
+},
+{
+  appointment_id: 8,
+  patient_id: 107,
+  patient_name: "Christopher Miller",
+  date_of_birth: "1982-04-25",
+  doctor_id: 207,
+  doctor_name: "Dr. Olivia Thomas",
+  specialization: "Ophthalmology",
+  appointment_date: "2025-08-30",
+  appointment_time: "10:00",
+  status: "completed",
+  reason_for_visit: "Blurred vision and eye strain"
+}  
+];
