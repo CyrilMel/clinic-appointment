@@ -72,27 +72,40 @@ function BookAppointment() {
                   onClick={closeModal}
                 ></button>
               </div>
-              <div className="modal-body">
-                {selectedDoctor && (
-                  <>
-                    <h6>
-                      Dr. {selectedDoctor.first_name}{" "}
-                      {selectedDoctor.last_name}
-                    </h6>
-                    <p>
-                      <strong>Specialization:</strong>{" "}
-                      {selectedDoctor.specialization}
-                    </p>
-                    <hr />
-                    <h6>Available Schedules</h6>
-                    <ul>
-                      <li>Monday - 9:00 AM to 12:00 PM</li>
-                      <li>Wednesday - 2:00 PM to 5:00 PM</li>
-                      <li>Friday - 10:00 AM to 1:00 PM</li>
-                    </ul>
-                  </>
-                )}
-              </div>
+                <div className="modal-body">
+                  {selectedDoctor && (
+                    <>
+                      <h6>
+                        Dr. {selectedDoctor.first_name} {selectedDoctor.last_name}
+                      </h6>
+                      <p>
+                        <strong>Specialization:</strong> {selectedDoctor.specialization}
+                      </p>
+                      <hr />
+
+                      <h6>Available Schedules</h6>
+                      <ul>
+                        {selectedDoctor.schedules?.map((schedule, index) => (
+                          <li key={index}>
+                            {schedule.day} - {schedule.time}
+                          </li>
+                        ))}
+                      </ul>
+
+                      <hr />
+
+                      <label htmlFor="schedule">Choose a schedule: </label>
+                      <select name="schedule" id="schedule">
+                        <option value="">-- Select a schedule --</option>
+                        {selectedDoctor.schedules?.map((schedule, index) => (
+                          <option key={index} value={schedule.day.toLowerCase()}>
+                            {schedule.day} - {schedule.time}
+                          </option>
+                        ))}
+                      </select>
+                    </>
+                  )}
+                </div>
               <div className="modal-footer">
                 <button
                   type="button"
