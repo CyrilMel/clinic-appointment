@@ -11,7 +11,8 @@ export const pastData = [
     appointment_date: "2025-08-15",
     appointment_time: "10:30",
     status: "completed",
-    reason_for_visit: "Chest pain and shortness of breath"
+    reason_for_visit: "Chest pain and shortness of breath",
+    report_pdf: "/reports/result1.pdf"
   },
   {
     appointment_id: 2,
@@ -24,7 +25,8 @@ export const pastData = [
     appointment_date: "2025-07-25",
     appointment_time: "14:00",
     status: "completed",
-    reason_for_visit: "Regular child checkup"
+    reason_for_visit: "Regular child checkup",
+    report_pdf: "/reports/result2.pdf"
   },
   {
   appointment_id: 3,
@@ -37,7 +39,8 @@ export const pastData = [
   appointment_date: "2025-08-18",
   appointment_time: "14:00",
   status: "completed",
-  reason_for_visit: "Skin rash and itching"
+  reason_for_visit: "Skin rash and itching",
+  report_pdf: "/reports/result1.pdf"
 },
 {
   appointment_id: 4,
@@ -50,7 +53,8 @@ export const pastData = [
   appointment_date: "2025-08-20",
   appointment_time: "09:15",
   status: "completed",
-  reason_for_visit: "Knee pain from sports injury"
+  reason_for_visit: "Knee pain from sports injury",
+  report_pdf: "/reports/result2.pdf"
 },
 {
   appointment_id: 5,
@@ -63,7 +67,8 @@ export const pastData = [
   appointment_date: "2025-08-22",
   appointment_time: "11:45",
   status: "completed",
-  reason_for_visit: "Child’s recurring fever"
+  reason_for_visit: "Child’s recurring fever",
+  report_pdf: "/reports/result1.pdf"
 },
 {
   appointment_id: 6,
@@ -76,7 +81,8 @@ export const pastData = [
   appointment_date: "2025-08-25",
   appointment_time: "13:30",
   status: "completed",
-  reason_for_visit: "Frequent migraines"
+  reason_for_visit: "Frequent migraines",
+  report_pdf: "/reports/result2.pdf"
 },
 {
   appointment_id: 7,
@@ -89,7 +95,8 @@ export const pastData = [
   appointment_date: "2025-08-28",
   appointment_time: "15:00",
   status: "completed",
-  reason_for_visit: "Stomach pain and indigestion"
+  reason_for_visit: "Stomach pain and indigestion",
+  report_pdf: "/reports/result1.pdf"
 },
 {
   appointment_id: 8,
@@ -102,6 +109,7 @@ export const pastData = [
   appointment_date: "2025-08-30",
   appointment_time: "10:00",
   status: "completed",
-  reason_for_visit: "Blurred vision and eye strain"
+  reason_for_visit: "Blurred vision and eye strain",
+  report_pdf: "/reports/result2.pdf"
 }  
 ];

@@ -54,18 +54,17 @@ function Dashboard() {
               style={{ position: "sticky", top: 0, zIndex: 1 }}
             >
               <tr>
-                <th className="text-secondary fw-semibold">Patient Name</th>
                 <th className="text-secondary fw-semibold">Doctor</th>
                 <th className="text-secondary fw-semibold">Specialization</th>
                 <th className="text-secondary fw-semibold">Date</th>
                 <th className="text-secondary fw-semibold">Time</th>
                 <th className="text-secondary fw-semibold">Reason</th>
+                <th className="text-secondary fw-semibold">Result</th>
               </tr>
             </thead>
             <tbody>
               {currentRows.map((appointment) => (
                 <tr key={appointment.appointment_id} className="hover-row">
-                  <td>{appointment.patient_name}</td>
                   <td>{appointment.doctor_name}</td>
                   <td>
                     <span className="badge bg-primary-subtle text-primary px-2 py-1 rounded-2">
@@ -76,6 +75,9 @@ function Dashboard() {
                   <td>{appointment.appointment_time}</td>
                   <td className="text-truncate" style={{ maxWidth: "200px" }}>
                     {appointment.reason_for_visit}
+                  </td>
+                  <td>
+                    <a href={appointment.report_pdf} download className="btn btn-sm btn-outline-primary">Download</a>
                   </td>
                 </tr>
               ))}
